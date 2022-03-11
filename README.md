@@ -1,4 +1,4 @@
-# TIME (time_is_money)
+# TIM (time_is_money)
 A simple command line script for time recording.  Windows only currently.
 
 ## Background
