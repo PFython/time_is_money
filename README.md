@@ -12,13 +12,13 @@ I created `Time Is Money` as a quick and dirty solution to that problem and woul
 
 ## Usage
 
-Start time recording for client MY CLIENT NAME an activity dsecription MY CURRENT TASK:
+Start logging time for client "MY CLIENT NAME" and task "MY CURRENT TASK":
 
     C:\> tim.pyw "MY CLIENT NAME" "MY CURRENT TASK"
 
     C:\> tim.pyw CLIENT TASK
 
-_(I've used capital letters for emphasis but you can use whatever case you want)._
+_(I've used capital letters for emphasis but you can use whatever case you want.  Also no need for quotation marks if you use underscores or a single word for CLIENT or TASK)._
 
 Stop recording time for the latest log entry:
 
