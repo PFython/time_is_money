@@ -18,7 +18,7 @@ Start logging time for client "MY CLIENT NAME" and task "MY CURRENT TASK":
 
     C:\> tim.pyw CLIENT TASK
 
-_(I've used capital letters for emphasis but you can use whatever case you want.  Also no need for quotation marks if you use underscores or a single word for CLIENT or TASK)._
+> _I've used capital letters for emphasis but you can use whatever case you want.  Also no need for quotation marks if you use underscores or a single word for CLIENT or TASK._
 
 Stop recording time for the latest log entry:
 
@@ -32,6 +32,7 @@ Calculate all time recorded since "2022-03-10"
 
     C:\> time.pyw 2022-03-10
 
+> _I believe that using the file extension `.pyw` makes the script run _without_ displaying an ugly terminal window._
 ----
 If you find `Time Is Money` helpful, please feel free to:
 
