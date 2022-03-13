@@ -30,7 +30,7 @@ def add_new_task(*args):
 
 def stop_task():
     now = pendulum.now()
-    now_str = now.format("YYYY-MM-DD HH:mm:ss")
+    now_str = now.format(DATE_TIME_FORMAT)
     df = pd.read_csv(OUTPUT_FILE)
     last_element_idx = df.tail(1).index
     df.loc[last_element_idx, HEADERS[-2]] = now_str
@@ -41,7 +41,7 @@ def stop_task():
         - pendulum.from_format(start_time, DATE_TIME_FORMAT)
     ).total_hours()
     df.loc[last_element_idx, HEADERS[-1]] = total_hours
-    df.to_csv(OUTPUT_FILE)
+    df.to_csv(OUTPUT_FILE, index=False)
 
 
 def total_time():
