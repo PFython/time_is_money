@@ -4,3 +4,6 @@
 @created: 11.03.22
 @author: felix
 """
+__all__ = (
+    "tim",
+    )
