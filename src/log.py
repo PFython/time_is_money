@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from pathlib import Path
-import pandas as pd
 import csv
+from pathlib import Path
+
+import pandas as pd
 
 import pendulum
-
 
 OUTPUT_FILE = Path("tim.csv")
 HEADERS = ["CLIENT", "TASK", "SUB-TASK", "START TIME", "END TIME", "HOURS"]
@@ -30,15 +30,16 @@ def add_new_task(*args):
 
 def stop_task():
     now = pendulum.now()
-    now_str = now.format('YYYY-MM-DD HH:mm:ss')
+    now_str = now.format("YYYY-MM-DD HH:mm:ss")
     df = pd.read_csv(OUTPUT_FILE)
     last_element_idx = df.tail(1).index
     df.loc[last_element_idx, HEADERS[-2]] = now_str
     end_time = df.loc[last_element_idx]["END TIME"].values[0]
     start_time = df.loc[last_element_idx]["START TIME"].values[0]
     total_hours = (
-            pendulum.from_format(end_time, DATE_TIME_FORMAT) - pendulum.from_format(start_time, DATE_TIME_FORMAT)
-                   ).total_hours()
+        pendulum.from_format(end_time, DATE_TIME_FORMAT)
+        - pendulum.from_format(start_time, DATE_TIME_FORMAT)
+    ).total_hours()
     df.loc[last_element_idx, HEADERS[-1]] = total_hours
     df.to_csv(OUTPUT_FILE)
 
@@ -50,7 +51,8 @@ def total_time():
 
 def last_task_closed():
     df = pd.read_csv(OUTPUT_FILE)
-    return df.tail(1).values(HEADERS[-1]) is not None
+    last_task_hours = df.tail(1)[HEADERS[-1]].values.tolist()[0]
+    return not pd.isna(last_task_hours)
 
 
 def time_since(datetime_obj):

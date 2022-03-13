@@ -6,10 +6,8 @@
 """
 import click
 
-from tasks import start_new_task
-from tasks import stop_some_task
-from tasks import total_task_time
-from tasks import total_task_time_since
+from src.tasks import (start_new_task, stop_some_task, total_task_time,
+                       total_task_time_since)
 
 
 @click.group()
@@ -23,5 +21,5 @@ messages.add_command(total_task_time)
 messages.add_command(total_task_time_since)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     messages()
