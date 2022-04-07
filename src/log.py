@@ -8,7 +8,7 @@ import pandas as pd
 import pendulum
 
 OUTPUT_FILE = Path("tim.csv")
-HEADERS = ["CLIENT", "TASK", "SUB-TASK", "START TIME", "END TIME", "HOURS"]
+HEADERS = ["CLIENT", "TASK", "SUB-TASK", "START TIME", "END TIME", "HOURS", "PROBONO"]
 DATE_TIME_FORMAT = "YYYY-MM-DD HH:mm:ss"
 DATE_FORMAT = "YYYY-MM-DD"
 
