@@ -51,7 +51,7 @@ def total_time():
 
 def last_task_closed():
     df = pd.read_csv(OUTPUT_FILE)
-    last_task_hours = df.tail(1)[HEADERS[-1]].values.tolist()[0]
+    last_task_hours = df.tail(1)["HOURS"].values.tolist()[0]
     return not pd.isna(last_task_hours)
 
 
