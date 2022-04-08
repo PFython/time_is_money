@@ -8,10 +8,16 @@ from src.log import (add_new_task, create_csv_if_needed, last_task_closed,
 from src.messages import os_display_message
 
 
-@click.command(name="START")
-@click.argument("client_name", nargs=1)
-@click.argument("task_name", nargs=1)
-def start_new_task(client_name, task_name):
+@click.command(name="START", options_metavar='')
+@click.argument("client_name", nargs=1, metavar="<name of client>")
+@click.argument("task_name", nargs=1, metavar="<name of task>")
+@click.argument("PROBONO", nargs=1, default="", type=str, required=False)
+def start_new_task(client_name, task_name, probono):
+    """Start a new task <name of task> for the client <name of client>.
+    \b
+    To enable PROBONO for a task write:
+        START <name of client> <name of task> PROBONO
+    """
     new_created = create_csv_if_needed()
     now = pendulum.now()
     now_str = now.format("YYYY-MM-DD HH:mm:ss")
@@ -19,7 +25,7 @@ def start_new_task(client_name, task_name):
         if not last_task_closed():
             os_display_message("⚠ ERROR.  Please STOP previous recording first:")
             return
-    add_new_task(client_name, task_name, None, now_str, None, None)
+    add_new_task(client_name, task_name, None, now_str, None, None, probono == "PROBONO")
     os_display_message("STARTED time recording:")
 
 
